@@ -10,50 +10,50 @@
 #' be utilized as a standalone function in other (i.e. 3rd Party) R packages.
 #'
 #'
-#' @param csCarat ([character]) a String or Text (i.e. [character] [vector]) object that defines
-#'                what the first or starting symbol (i.e. carat) of the note, to be posted, should
-#'                be or look like. This can be a simple text or a complex (i.e. ANSI, RegEx or
-#'                escaped character) object - but must be an acceptable R [character] object (
-#'                default: `=>`).
+#' @param csIconCarat ([character]) a String or Text (i.e. [character] [vector]) object that defines
+#'                    what the first or starting symbol (i.e. carat) of the note, to be posted, 
+#'                    should be or look like. This can be a simple text or a complex (i.e. ANSI, 
+#'                    RegEx or escaped character) object - but must be an acceptable R [character] 
+#'                    object (default: `=>`).
 #' @param ssHead ([character]) a simple String or Text (i.e. [character] [vector]) argument that 
 #'               defines the starting (i.e. header) text of the note (to be posted). This function 
 #'               argument is useful in standardizing the notification format at an R Project level
 #'               (default: `NULL`).
-#' @param csSplit ([character]) a complex String or Text (i.e. [character] [vector]) object that 
-#'                defines what the middle symbol (i.e. separator between the `ssHead` and `ssBody` 
-#'                components) of the note, to be posted, should be or look like. This can be a 
-#'                simple text or a complex (i.e. ANSI, RegEx or escaped character) object - but must 
-#'                be an acceptable R [character] object (default: `|`).
+#' @param csIconSplit ([character]) a complex String or Text (i.e. [character] [vector]) object that 
+#'                    defines what the middle symbol (i.e. separator between the `ssHead` and 
+#'                    `ssBody` components) of the note, to be posted, should be or look like. This 
+#'                    can be a simple text or a complex (i.e. ANSI, RegEx or escaped character) 
+#'                    object - but must be an acceptable R [character] object (default: `|`).
 #' @param ssBody ([character]) a simple String or Text (i.e. [character] [vector]) argument that 
-#'               defines the main (i.e. body) text of the note to be posted (default: "Add NOTE to 
-#'               be POSTED here !!!").
-#' @param csTail ([character]) a String or Text (i.e. [character] [vector]) object that defines
-#'               what the ending symbol (i.e. tail or terminal icon) of the note, to be posted,
-#'               should be or look like. This can be a simple text or a complex (i.e. ANSI, RegEx
-#'               or escaped character) object, but must be an acceptable R [character] object (
-#'               default: `MFMRutils::RENV_ICONS$FireFlame`).
+#'               defines the main (i.e. body) text of the note to be posted (default: "POST-NOTE 
+#'               'Body' Text NULL !!!").
+#' @param csIconTail ([character]) a String or Text (i.e. [character] [vector]) object that defines
+#'                   what the ending symbol (i.e. tail or terminal icon) of the note, to be posted,
+#'                   should be or look like. This can be a simple text or a complex (i.e. ANSI, 
+#'                   RegEx or escaped character) object, but must be an acceptable R [character] 
+#'                   object (default: `MFMRutils::RENV_ICONS$FireFlame`).
 #' @param sbShowTail ([logical]) a Boolean value that specifies whether to include the tail (i.e.
 #'                   trailing or terminal symbol or icon) object in the note to be posted or not 
 #'                   (default: `TRUE`).
 #' @param sbPrintPretty ([logical]) a Boolean value that specifies whether the built-in (i.e. the
 #'                      function's internal) text formatting (i.e. ANSI <font weight and colour>
-#'                      formats) should be applied to the printed notification or not (default 
+#'                      formats) should be applied to the printed notification or not (default: 
 #'                      `TRUE`).
 #' @param csColorHead ([character]) a String or Text (i.e. [character] [vector]) value that defines 
 #'                    the text colour for the header (`ssHead`) object of the note to be posted
-#'                    (default: `MFMRutils::RENV_COLOURS$GreenFORE`).
+#'                    (default: `MFMRutils::RENV_COLOURSGreenFORE`).
 #' @param csColorBody ([character]) a String or Text (i.e. [character] [vector]) value that defines 
 #'                    the text colour for the main text (`ssBody`) object of the note to be posted
-#'                    (default: `MFMRutils::RENV_COLOURS$CyanFORE`).
+#'                    (default: `MFMRutils::RENV_COLOURSCyanFORE`).
 #' @param csColorCarat ([character]) a String or Text (i.e. [character] [vector]) value that defines 
-#'                     the colour for the leading (starting) symbol or icon (`csCarat`) object of 
-#'                     the note to be posted (default: `MFMRutils::RENV_COLOURS$YellowFORE`).
+#'                     the colour for the leading (starting) symbol or icon (`csIconCarat`) object 
+#'                     of the note to be posted (default: `MFMRutils::RENV_COLOURSYellowFORE`).
 #' @param csColorSplit ([character]) a String or Text (i.e. [character] [vector]) value that defines 
-#'                     the colour for the middle spacer (`csSplit`) object of the note to be posted
-#'                     (default: `MFMRutils::RENV_COLOURS$YellowFORE`).
-#' @param sbPrePendNL ([logical]) a Boolean value that specifies whether a new line (blank space or 
-#'                    row) should be added to the START of the note to be posted or not (default: 
-#'                    `FALSE`).
+#'                     the colour for the middle spacer (`csIconSplit`) object of the note to be 
+#'                     posted (default: `MFMRutils::RENV_COLOURSYellowFORE`).
+#' @param sbPrePend1NL ([logical]) a Boolean value that specifies whether a new line (blank space or 
+#'                     row) should be added to the START of the note to be posted or not (default: 
+#'                     `FALSE`).
 #' @param sbPostPend1NL ([logical]) a Boolean value that specifies whether a SINGLE new line (blank 
 #'                      space or row) should be added to the END of the note to be posted or not 
 #'                      (default: `TRUE`).
@@ -65,6 +65,12 @@
 #'                     posted (printed to the active R Console) or not (default: `TRUE`).
 #' @param siCallCELN ([integer]) a Numeric value that specifies the Code Editor Line Number (CELN) 
 #'                   at which this function was called from by its parent function or R Script.
+#' @param ... ([list]) a List of R Objects function argument to catch all "Fall-Through" or 
+#'            "DotsArgs" values. The [...] argument for this function is used specifically as a 
+#'            generic function argument feature (i.e. "Fall-Through-Args" back-up) that enables 
+#'            passing "DotsArgs" from parent functions in which this function is nested. Function 
+#'            arguments that can be passed here are collated in the [MFMRutils::RENV_FSID] immutable
+#'            list (NB: all [MFMRutils::RENV_FSID] list items prefixed with `F_ARGS_` may be used).
 #'
 #'
 #' @returns
@@ -87,7 +93,7 @@
 #' 
 #' ### Example 2: Post a user-specified notification ...
 #' info.post.note(
-#'   csCarat = "~>",                               # <- Sets the leading <start> icon to a "~>".
+#'   csIconCarat = "~>",                               # <- Sets the leading <start> icon to a "~>".
 #'   ssHead = "My-CUST-FUNC",                      # <- Sets the HEADER text of the notification ...
 #'   ssBody = "This is my COOL NOTE -> YaY !!!",   # <- Sets the MAIN <body> text of notification.
 #'   sbShowTail = FALSE                            # <- Hides the trailing <tail> icon object !!!
@@ -96,7 +102,7 @@
 #' 
 #' ### Example 3: Deactivate the built-in formatting (spaces, font weights and font colours ) ...
 #' info.post.note(
-#'   csCarat = "~>",                               
+#'   csIconCarat = "~>",                               
 #'   ssHead = "My-CUST-FUNC",                      
 #'   ssBody = "This is my COOL NOTE -> YaY !!!",   
 #'   sbShowTail = FALSE,                           
@@ -108,7 +114,7 @@
 #' ### Example 4: Post notifications on basis of the DEBUG and VERBOSE R Project trackers ...
 #' RCT_IS_VERBOSE_RT_MODE_ <- TRUE   # <- Set the R VERBOSE Tracker to TRUE anywhere in R Project...
 #' info.post.note(
-#'   csCarat = "~>",                               
+#'   csIconCarat = "~>",                               
 #'   ssHead = "My-CUST-FUNC",                      
 #'   ssBody = "This is my COOL NOTE -> YaY !!!",   
 #'   sbPostAlways = FALSE   # <- The R Project VERBOSE tracker (`RCT_IS_VERBOSE_RT_MODE_`)
@@ -123,7 +129,7 @@
 #'
 #' RCT_IS_DEBUG_RT_MODE_ <- TRUE   # <- Set the R DEBUG Tracker to TRUE anywhere in an R Project ...
 #' info.post.note(
-#'   csCarat = "~>",
+#'   csIconCarat = "~>",
 #'   ssHead = "My-CUST-FUNC",
 #'   ssBody = "This is my COOL NOTE -> YaY !!!",
 #'   sbPostAlways = FALSE   # <- The R Project DEBUG tracker (`RCT_IS_DEBUG_RT_MODE_`)
@@ -142,29 +148,31 @@
 #' @export
 #? ### ### ###
 "info.post.note" <- function(
-  csCarat=NULL, ssHead=NULL, csSplit=NULL, ssBody=NULL, csTail=NULL, sbShowTail=NULL, 
+  csIconCarat=NULL, ssHead=NULL, csIconSplit=NULL, ssBody=NULL, csIconTail=NULL, sbShowTail=NULL, 
   sbPrintPretty=NULL, csColorHead=NULL, csColorBody=NULL, csColorCarat=NULL, csColorSplit=NULL, 
-  sbPrePendNL=NULL, sbPostPend1NL=NULL, sbPostPend2NLs=NULL, sbPostAlways=NULL, siCallCELN=NULL
+  sbPrePend1NL=NULL, sbPostPend1NL=NULL, sbPostPend2NLs=NULL, sbPostAlways=NULL, 
+  siCallCELN=NULL, ...
 ) {
   
   
   ####   STEP 01 - Prime "Function Self-ID" CONSTANTS   ####
-  ## NB: This 👆  is THE 1st OF ONLY 2 FUNCTIONS [in the entire MFMR Suite of R Functions] THAT DO
-  ##     NOT SELF-IDENTIFY (since a Self-ID implementation here will cause infinite recursion) !!!
-  RCT_DBL_SYS_TIME_NOW_ <- base::Sys.time();   # <- Extract the <active> System Date-Time !!!
-  RCT_TAG_FUNC_LIBR_ID_ <- "MFMRutils";        # <- R Library Identifier !!!
-  RCT_TAG_FUNC_ID_LONG_ <- "INFO-Post-Note";   # <- FSID - LONG !!!
-  RCT_TAG_FUNC_ID_NSID_ <- "Post-Note";        # <- This Function DOES NOT SELF-ID (NSID) !!! 
+  ##  NB: This 👆  is THE 1st OF ONLY 2 FUNCTIONS [in the entire MFMR Suite of R Functions] THAT DO
+  ##      NOT SELF-IDENTIFY (since a Self-ID implementation here will cause infinite recursion) !!!
+  RCT_DBL_SYS_TIME_NOW_    <- base::Sys.time();   # <- Extract the <active> System Date-Time !!!
+  RCT_TAG_FUNC_LIBR_ID_    <- "MFMRutils";        # <- R Library Identifier !!!
+  RCT_TAG_R_FUNC_ID_NSIDS_ <- "Post.Note";        # <- This Function DOES NOT SELF-ID (NSID) !!! 
+  RCT_TAG_R_FUNC_ID_NSIDL_ <- "INFO.Post.Note";   # <- FSID - LONG !!!
   
-  RCT_INT_CELN_START_ <- 145L;   # <- The Code Editor Line Number (CELN) at which the function 
+  RCT_INT_CELN_START_ <- 150L;   # <- The Code Editor Line Number (CELN) at which the function 
                                  #    OPENING <normal> brace/bracket "(" is located !!!
-  RCT_INT_CELN_STOP_  <- 350L;   # <- The Code Editor Line Number (CELN) at which the function 
+  RCT_INT_CELN_STOP_  <- 378L;   # <- The Code Editor Line Number (CELN) at which the function 
                                  #    CLOSING <curly> brace/bracket "}" is located !!!
+  coDotsArgs_ <- base::list(...);   # <- Capture all the "DotsArgs" values here !!!
   
   
   
   ####   STEP 02 - Alias ALL <required> Functions   ####
-  ## NOTES: This is a NEW approach to improve R Session Memory Efficiency ...
+  ##   NOTES: This is a NEW approach to improve R Session Memory Efficiency ...
   rasBaseCAT         <- base::cat;
   rasBaseGET0        <- base::get0;
   rasBaseNCHAR       <- base::nchar;
@@ -173,90 +181,104 @@
   rasBaseIsNULL      <- base::is.null;
   rasBaseIsINVISIBLE <- base::invisible;
   
-  `%??%`         <- MFMRutils::`%??%`;   # <- VERY COOL Alias <NCO> !!!
-  rasMfmrFSID    <- MFMRutils::RENV_FSID;
-  rasMfmrICONS   <- MFMRutils::RENV_ICONS;
-  rasMfmrFORMATS <- MFMRutils::RENV_FORMATS;
-  rasMfmrGetCELN <- MFMRutils::code.get.celn;
+  `%??%`            <- MFMRutils::`%??%`;   # <- VERY COOL Alias <NCO> !!!
+  rasMfmrFSID       <- MFMRutils::RENV_FSID;
+  rasMfmrICONS      <- MFMRutils::RENV_ICONS;
+  rasMfmrFORMATS    <- MFMRutils::RENV_FORMATS;
+  rasMfmrCOLOURS    <- MFMRutils::RENV_COLOURS;
+  rasMfmrPollRTMODE <- MFMRutils::code.poll.r.runtime.mode;
   
-  # SPECIAL - Constant - TAG - Aliases (NB for the `INFO.Post.*` functions) ...
-  RAS_IS_DEBUG_MODE_     <- rasMfmrFSID$CONSTS_IS_DEBUG
-  RAS_TAG_FUNC_ID_SHORT_ <- rasMfmrFSID$CONSTS_FID_SHORT
-  RAS_IS_VERBOSE_MODE_   <- rasMfmrFSID$CONSTS_IS_VERBOSE
-  
-  
-  
-  ###   STEP 03 - Internalize ALL Function Arguments   ####
-  # NOTES: hand-over all func-args to func-local <internal> variables ...
-  csCarat_        <- csCarat        %??% "=>";
-  ssHead_         <- ssHead;
-  csSplit_        <- csSplit        %??% "|";
-  ssBody_         <- ssBody         %??% "Add NOTE to be POSTED here !!!";
-  csTail_         <- csTail         %??% MFMRutils::RENV_ICONS$FireFlame;
-  sbShowTail_     <- sbShowTail     %??% TRUE;
-  sbPrintPretty_  <- sbPrintPretty  %??% TRUE;
-  csColorHead_    <- csColorHead    %??% MFMRutils::RENV_COLOURS$GreenFORE;
-  csColorBody_    <- csColorBody    %??% MFMRutils::RENV_COLOURS$CyanFORE;
-  csColorCarat_   <- csColorCarat   %??% MFMRutils::RENV_COLOURS$YellowFORE;
-  csColorSplit_   <- csColorSplit   %??% MFMRutils::RENV_COLOURS$YellowFORE;
-  sbPrePendNL_    <- sbPrePendNL    %??% FALSE;
-  sbPostPend1NL_  <- sbPostPend1NL  %??% TRUE;
-  sbPostPend2NLs_ <- sbPostPend2NLs %??% FALSE;
-  sbPostAlways_   <- sbPostAlways   %??% FALSE;
-  siCallCELN_     <- siCallCELN     %??% "";
+  ## SPECIAL - Constant - TAG - Aliases (NB for the `INFO.Post.*` functions) ...
+  RCT_RCO_RT_MODE_       <- rasMfmrPollRTMODE();   # <- R Run-Time Mode/State !!!
+  RCT_TAG_FUNC_ID_SHORT_ <- rasMfmrFSID$CONSTS_FID_SHORT;
+  RCT_BOOL_POST_ALWAYS_  <- rasMfmrFSID$F_ARGS_BOOL_POST_ALWAYS;
   
   
   
-  ###   STEP 04 - Run NULL Checks accordingly   ####
-  if (rasBaseIsNULL(ssHead_)) {
-    ssHead_ <- rasBaseGET0(
-      RAS_TAG_FUNC_ID_SHORT_,          # <- Find the parent <caller> Function ID (if defined) !!!
-      envir = base::pos.to.env(-1L),   # <- The R environment the function was called from !!!
-      ifnotfound = "UNK-Func-ID"       # <- Set a DEFAULT <caller> Function Identifier <UNKNOWN> !!! 
-    );
-  }
-  sbIsDEBUG_ <- base::get0(   # <- Searches the Global Environment of the Active R Session for
-    RAS_IS_DEBUG_MODE_,       #    the <somewhat> uniquely named variable `RCT_IS_DEBUG_RT_MODE_`
-    envir = .GlobalEnv,       #    and extracts its value.
-    ifnotfound = FALSE        # -> Assigns a value of `FALSE` if the variable was NOT FOUND in
-  );                          #    the Active R Session !!!
-  sbIsVERBOSE_ <- base::get0(   # <- Searches the Global Environment of the Active R Session for
-    RAS_IS_VERBOSE_MODE_,       #    the <somewhat> uniquely named variable `RCT_IS_VERBOSE_RT_MODE_`
-    envir = .GlobalEnv,         #    and extracts its value.
-    ifnotfound = FALSE          # -> Assigns a value of `FALSE` if the variable was NOT FOUND in
-  );                            #    the Active R Session !!!
-  
-  
-  if (sbPostAlways_ || sbIsVERBOSE_ || sbIsDEBUG_) {   # <- Run code if any of these are TRUE !!!
+  ####   STEP 03 - Run NULL Checks accordingly   ####
+  sbIsDEBUG_    <- RCT_RCO_RT_MODE_$IS_DEBUG;
+  sbIsVERBOSE_  <- RCT_RCO_RT_MODE_$IS_VERBOSE;
+  sbPostAlways_ <- sbPostAlways %??% coDotsArgs_[[RCT_BOOL_POST_ALWAYS_]] %??% FALSE;   # <- NB to extract here !!!
+  if (sbPostAlways_ || sbIsDEBUG_ || sbIsVERBOSE_) {   # <- Run code if any of these are TRUE !!!
     
-    ###   STEP 05 - Execute Custom Function's Code logic   ####
-    ## 5.1 - Prime Standard Text Formatters ... ####
+    ####   STEP 03 - Execute Custom Function's Code logic   ####
+    ##   3.1 - Prime Standard Text Formats ... ####
     csFormatBOLD_  <- rasMfmrFORMATS$ANSI_BOLD;
     csFormatRESET_ <- rasMfmrFORMATS$ANSI_RESET;
     
+    ##   3.2 - Prime selected variables (akin to constants) ...
+    csIconFLAME_    <- rasMfmrICONS$FireFlame;
+    csColorsCYAN_   <- rasMfmrCOLOURS$CyanFORE;
+    csColorsGREEN_  <- rasMfmrCOLOURS$GreenFORE;
+    csColorsYELLOW_ <- rasMfmrCOLOURS$YellowFORE;
     
-    ## 5.2 - Prime the CARAT icon accordingly ... ####
+    ##   3.3 - Prime selected variables (akin to constants) ...
+    RAS_ICON_CARAT_      <- rasMfmrFSID$F_ARGS_ICON_CARAT;
+    RAS_ICON_SPLIT_      <- rasMfmrFSID$F_ARGS_ICON_SPLIT;
+    RAS_ICON_TAIL_       <- rasMfmrFSID$F_ARGS_ICON_TAIL;
+    RAS_IS_SHOW_TAIL_    <- rasMfmrFSID$F_ARGS_BOOL_SHOW_TAIL;
+    RAS_IS_PRINT_PRETTY_ <- rasMfmrFSID$F_ARGS_BOOL_PRINT_PRETTY;
+    RAS_COLOUR_HEAD_     <- rasMfmrFSID$F_ARGS_COLOR_TEXT_HEAD;
+    RAS_COLOUR_BODY_     <- rasMfmrFSID$F_ARGS_COLOR_TEXT_BODY;
+    RAS_COLOUR_CARAT_    <- rasMfmrFSID$F_ARGS_COLOR_CARAT;
+    RAS_COLOUR_SPLIT_    <- rasMfmrFSID$F_ARGS_COLOR_SPLIT;
+    RAS_IS_NL_PRE_ONE_   <- rasMfmrFSID$F_ARGS_BOOL_NEW_LINE_PRE_ONE;
+    RAS_IS_NL_POST_1ST_  <- rasMfmrFSID$F_ARGS_BOOL_NEW_LINE_POST_ONE;
+    RAS_IS_NL_POST_2ND_  <- rasMfmrFSID$F_ARGS_BOOL_NEW_LINE_POST_TWO;
+    RAS_FUNC_CALLR_CELN_ <- rasMfmrFSID$F_ARGS_FUNC_CALLER_CELN;
+    
+    
+    
+    ####   STEP 04 - Internalize ALL Function Arguments   ####
+    # NOTES: hand-over all func-args to func-local <internal> variables ...
+    csIconCarat_    <- csIconCarat    %??% coDotsArgs_[[RAS_ICON_CARAT_]]      %??% "=>";
+    ssHead_         <- ssHead         %??% "FSID-NULL";
+    csIconSplit_    <- csIconSplit    %??% coDotsArgs_[[RAS_ICON_SPLIT_]]      %??% "|";
+    ssBody_         <- ssBody         %??% "POST-NOTE 'Body' Text NULL !!!";
+    csIconTail_     <- csIconTail     %??% coDotsArgs_[[RAS_ICON_TAIL_]]       %??% csIconFLAME_;
+    sbShowTail_     <- sbShowTail     %??% coDotsArgs_[[RAS_IS_SHOW_TAIL_]]    %??% TRUE;
+    sbPrintPretty_  <- sbPrintPretty  %??% coDotsArgs_[[RAS_IS_PRINT_PRETTY_]] %??% TRUE;
+    csColorHead_    <- csColorHead    %??% coDotsArgs_[[RAS_COLOUR_HEAD_]]     %??% csColorsGREEN_;
+    csColorBody_    <- csColorBody    %??% coDotsArgs_[[RAS_COLOUR_BODY_]]     %??% csColorsCYAN_;
+    csColorCarat_   <- csColorCarat   %??% coDotsArgs_[[RAS_COLOUR_CARAT_]]    %??% csColorsYELLOW_;
+    csColorSplit_   <- csColorSplit   %??% coDotsArgs_[[RAS_COLOUR_SPLIT_]]    %??% csColorsYELLOW_;
+    sbPrePend1NL_   <- sbPrePend1NL   %??% coDotsArgs_[[RAS_IS_NL_PRE_ONE_]]   %??% FALSE;
+    sbPostPend1NL_  <- sbPostPend1NL  %??% coDotsArgs_[[RAS_IS_NL_POST_1ST_]]  %??% TRUE;
+    sbPostPend2NLs_ <- sbPostPend2NLs %??% coDotsArgs_[[RAS_IS_NL_POST_2ND_]]  %??% FALSE;
+    siCallCELN_     <- siCallCELN     %??% coDotsArgs_[[RAS_FUNC_CALLR_CELN_]] %??% "";
+    
+    
+    if (rasBaseIsNULL(ssHead_)) {
+      ssHead_ <- rasBaseGET0(
+        RCT_TAG_FUNC_ID_SHORT_,          # <- Find the parent <caller> Function ID (if defined) !!!
+        envir = base::pos.to.env(-1L),   # <- The R environment the function was called from !!!
+        ifnotfound = "UNK-Func-ID"       # <- Set a DEFAULT <caller> Function Identifier <UNKNOWN> !!! 
+      );
+    }
+    
+    ## 4.2 - Prime the CARAT icon accordingly ... ####
     if (sbPrintPretty_) {
-      if (csCarat_ == "=>" || csCarat_ == " => " || csCarat_ == "  =>  " || csCarat_ == "   =>   " ||
-          csCarat_ == "->" || csCarat_ == " -> " || csCarat_ == "  ->  " || csCarat_ == "   ->   ") {
-        csCarat_ <- rasBasePASTE0(
+      if (csIconCarat_ == "=>" || csIconCarat_ == " => " || csIconCarat_ == "  =>  " || 
+          csIconCarat_ == "   =>   " || csIconCarat_ == "->" || csIconCarat_ == " -> " || 
+          csIconCarat_ == "  ->  " || csIconCarat_ == "   ->   ") {
+        csIconCarat_ <- rasBasePASTE0(
           csFormatBOLD_,             # <- Applies the BOLD ANSI Text formatting ...
-          csColorCarat_, " ",        # <- Applies the Text Colour Formats & pre-pends a spacer ...
+          csColorCarat_, "     ",    # <- Applies the Text Colour Formats & pre-pends a spacer ...
           rasMfmrICONS$ArrowRIGHT,   # <- Adds the default <standardized> "Right-Arrow" icon ...
           csFormatRESET_, " "        # <- Closes text formatting and adds a <post-pended> spacer ...
         );
       } else {
-        csCarat_ <- rasBasePASTE0(
-          csFormatBOLD_,        # <- Applies the BOLD ANSI Text formatting ...
-          csColorCarat_, " ",   # <- Applies the Text Colour Formats & pre-pends a spacer ...
-          csCarat_,             # <- Adds the user-defined carat icon (symbol or text object) ...
-          csFormatRESET_, " "   # <- Closes text formatting and adds a <post-pended> spacer ...
+        csIconCarat_ <- rasBasePASTE0(
+          csFormatBOLD_,            # <- Applies the BOLD ANSI Text formatting ...
+          csColorCarat_, "     ",   # <- Applies the Text Colour Formats & pre-pends a spacer ...
+          csIconCarat_,             # <- Adds the user-defined carat icon (symbol or text object) ...
+          csFormatRESET_, " "       # <- Closes text formatting and adds a <post-pended> spacer ...
         );
       }
     }
     
     
-    ## 5.3 - Prime the HEADER text accordingly ... ####
+    ## 4.3 - Prime the HEADER text accordingly ... ####
     if (sbPrintPretty_) {
       sbHasVal_ <- rasBaseNCHAR(siCallCELN_) >= 1;   # <- Run Boolean check on CELN Val-length !!! 
       ssHead_ <- rasBasePASTE0(
@@ -264,7 +286,7 @@
         ssHead_,                       # <- Adds the Note HEADER text value ...
         rasBaseIfELSE(
           sbHasVal_ && sbIsDEBUG_ || 
-          sbHasVal_ && sbIsVERBOSE_, 
+          sbHasVal_ && sbIsVERBOSE_ || sbHasVal_ && sbPostAlways_, 
           " ", ""                      # <= Adds a pre-pended spacer (if valid CELN Conditions) !!!
         ),
         siCallCELN_,                   # <- Adds a Caller CELN if in DEBUG Mode !!!
@@ -278,26 +300,27 @@
     }
     
     
-    ## 5.4 - Prime the SPLIT icon accordingly ... ####
+    ## 4.4 - Prime the SPLIT icon accordingly ... ####
     if (sbPrintPretty_) {
-      if (csSplit_ == "|" || csSplit_ == " | "  || csSplit_ == "  |  "  || csSplit_ == "   |   ") {
-        csSplit_ <- rasBasePASTE0(
+      if (csIconSplit_ == "|" || csIconSplit_ == " | "  || csIconSplit_ == "  |  "  || 
+          csIconSplit_ == "   |   ") {
+        csIconSplit_ <- rasBasePASTE0(
           csFormatBOLD_, csColorSplit_,   # <- Adds the BOLD & Colour text formats ...
           " | ",                          # <- Adds the default <standardized> SPLIT icon ...
           csFormatRESET_                  # <- Closes text formatting ...
         );
       } else {
-        csSplit_ <- rasBasePASTE0(
+        csIconSplit_ <- rasBasePASTE0(
           csFormatBOLD_,        # <- Applies the BOLD ANSI Text formatting ... 
           csColorSplit_, " ",   # <- Applies the Text Colour Formats & pre-pends a spacer ...
-          csSplit_,             # <- Adds the user-defined SPLIT icon ...
+          csIconSplit_,             # <- Adds the user-defined SPLIT icon ...
           csFormatRESET_, " "   # <- Closes text formatting & post-pends a spacer...
         );
       }
     }
     
     
-    ## 5.5 - Prime the NOTE text accordingly ... ####
+    ## 4.5 - Prime the NOTE text accordingly ... ####
     if (sbPrintPretty_) {
       ssBody_ <- rasBasePASTE0(
         csFormatBOLD_, csColorBody_,   # -> Adds the BOLD & Colour text formats ...
@@ -307,20 +330,20 @@
     }
     
     
-    ## 5.6 - Prime the TAIL icon accordingly ... ####
+    ## 4.6 - Prime the TAIL icon accordingly ... ####
     if (sbShowTail_) {
       if (sbPrintPretty_) {
-        csTail_ <- rasBasePASTE0(
+        csIconTail_ <- rasBasePASTE0(
           " ",      # <= Adds a pre-pended spacer ...
-          csTail_   # <= Adds the defined TAIL icon (or symbol) ...
+          csIconTail_   # <= Adds the defined TAIL icon (or symbol) ...
         );
       }
     } else {
-      csTail_ <- "";   # -> Assigns a "zero-byte" value <blank> as the TAIL icon !!!
+      csIconTail_ <- "";   # -> Assigns a "zero-byte" value <blank> as the TAIL icon !!!
     }
     
     
-    ## 5.7 - Finalize the Terminal New Lines ####
+    ## 4.7 - Finalize the Terminal New Lines ####
     ssTerminalNLs_ <- "";
     if (sbPostPend2NLs_) {
       ssTerminalNLs_ <- "\n\n";
@@ -329,25 +352,25 @@
     }
     
     
-    ## 5.7 - Compile FULL MESSAGE text !!! ####
+    ## 4.8 - Compile FULL MESSAGE text !!! ####
     csFullNote_ <- rasBasePASTE0(
-      rasBaseIfELSE(sbPrePendNL, "\n", ""),   # <- Adds pre-pended NEW LINE (if so requested) !!!
-      csCarat_, ssHead_,                      # <- Adds the CARAT icon & HEADER text sequences ...
-      csSplit_, ssBody_,                      # <- Adds the SPLIT icon & NOTE (main body) text ...
-      csTail_,                                # <- Adds the TAIL icon (as patched in Step 5.6) ...
-      ssTerminalNLs_                          # <- Adds the terminal NEW LINES (as requested) !!!
+      rasBaseIfELSE(sbPrePend1NL, "\n", ""),   # <- Adds pre-pended NEW LINE (if so requested) !!!
+      csIconCarat_, ssHead_,                   # <- Adds the CARAT icon & HEADER text sequences ...
+      csIconSplit_, ssBody_,                   # <- Adds the SPLIT icon & NOTE (main body) text ...
+      csIconTail_,                             # <- Adds the TAIL icon (as patched in Step 5.6) ...
+      ssTerminalNLs_                           # <- Adds the terminal NEW LINES (as requested) !!!
     );
     
     
-    ## 5.8 - FINALLY -> Post FULL MESSAGE text !!! ####
+    ## 4.9 - FINALLY -> Post FULL MESSAGE text !!! ####
     rasBaseCAT(csFullNote_);   # -> VERY NB: Prints (outputs) full notification <message> to active 
                                #    R-Session Console window (THIS IS THE MAIN OBJECTIVE OF THIS R
                                #    FUNCTION) !!!
     
     
     
-    ###   STEP 06 - Return Results to Function Call   ####
-    # Outputs the full notification text <message> as the function's return value ...
+    ####   STEP 05 - Return Results to Function Call   ####
+    ##  Outputs the full notification text <message> as the function's return value ...
     rasBaseIsINVISIBLE(csFullNote_);
     
   }

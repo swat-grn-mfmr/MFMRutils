@@ -81,6 +81,7 @@
   
   ####   STEP 02 - Define "Local Aliases" for ALL Functions   ####
   ###    NOTES: This is a NEW approach to improve R Session Memory Efficiency ...
+  rasBaseC          <- base::c;
   rasBaseCAT        <- base::cat;
   rasBaseLIST       <- base::list;
   rasBaseTRUNC      <- base::trunc;
@@ -118,8 +119,8 @@
   rasMfmrCOLORS                <- MFMRutils::RENV_COLOURS;
   rasMfmrFORMATS               <- MFMRutils::RENV_FORMATS;
   rasMfmrDevsPrintCodeCheckRES <- devs.print.code.check.res;
-  rasMfmrPullLibrINFO          <- MFMRutils::devs.pull.libr.info;
   rasMfmrDevsPatchCodeDevTRCKR <- devs.patch.code.dev.trckr.file;
+  rasMfmrPullLibrINFO          <- MFMRutils::devs.pull.libr.info;
   rasMfmrInfoPostFuncSelfID    <- MFMRutils::info.post.func.self.id;
   
   
@@ -206,7 +207,7 @@
   
   # -> Runs the Documentation process ONLY IF the "sbCheckCRAN" value is FALSE !!!
   if (!rsbCheckCRAN_ && rsbCheckDocs_) {   
-    rasDevToolsDOCUMENT(roclets = c('rd', 'collate', 'namespace'));
+    rasDevToolsDOCUMENT(roclets = rasBaseC('rd', 'collate', 'namespace'));
   }
   
   
